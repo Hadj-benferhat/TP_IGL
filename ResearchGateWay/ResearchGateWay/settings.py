@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,6 +27,14 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# Elasticsearch configuration
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'http://localhost:9200',
+        
+    },
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,8 +44,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'services'
+    'services',
+    'django_elasticsearch_dsl',
+    'django_elasticsearch_dsl_drf',
 ]
+
+# Specify the Elasticsearch index names
+ELASTICSEARCH_INDEX_NAMES = {
+    'search_indixes.document': 'articleindex',
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +64,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Use the Elasticsearch backend for Django models
+DJANGO_ELASTICSEARCH_DSL = {
+    'default': {
+        'index_settings': {},
+        'endpoints': None,
+    },
+}
 
 ROOT_URLCONF = 'ResearchGateWay.urls'
 

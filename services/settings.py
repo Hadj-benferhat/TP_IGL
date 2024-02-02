@@ -40,8 +40,12 @@ INSTALLED_APPS = [
     'services',
     'rest_framework',
     'rest_framework_jwt',
-    'rest_framework_jwt.blacklist'
+    'rest_framework_jwt.blacklist',
+    'django_elasticsearch_dsl'
 ]
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -65,6 +69,7 @@ REST_FRAMEWORK = {
     )
     
 }
+
 
 TEMPLATES = [
     {

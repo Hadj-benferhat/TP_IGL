@@ -13,13 +13,14 @@ class Utilisateur(models.Model):
 
 
 class Article(models.Model):
-    title = models.CharField
-    samary = models.CharField
-    authors = models.CharField(max_length=255)
-    institutions = models.CharField(max_length=255)
-    integralText = models.CharField
-    pdfUrl = models.CharField
-    reference = models.CharField
+    title = models.CharField(max_length=255,default= "")
+    samary = models.CharField(max_length=25555,default= "")
+    authors = models.CharField(max_length=255,default= "")
+    institutions = models.CharField(max_length=255,default= "")
+    integralText = models.CharField(max_length=25555,default= "")
+    pdfUrl = models.CharField(max_length=255,default= "")
+    reference = models.CharField(max_length=255,default= "")
+    keyWords = models.CharField(max_length=255,default= "")
 
 
 class Favoris(models.Model):
